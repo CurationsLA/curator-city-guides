@@ -30,6 +30,8 @@ We believe in **Human x AI Collaboration and Enablement**. Whether you're a huma
 - The workflow for adding and enhancing guides
 - What makes a guide "Legendary"
 
+**Need a visual guide?** Check out [WORKFLOW.md](WORKFLOW.md) for flowcharts and examples.
+
 **Ready to enhance a guide?** Check out [to-edit-guides/](to-edit-guides/) for guides ready for your input.
 
 ## 📋 Project Structure

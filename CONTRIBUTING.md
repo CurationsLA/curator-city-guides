@@ -164,4 +164,6 @@ Don't hesitate to:
 - Reference related PRs/issues with `#number`
 - Ask for clarification or guidance
 
+**Need visual examples?** Check out [WORKFLOW.md](WORKFLOW.md) for flowcharts and scenario walkthroughs.
+
 **Remember:** This is Human x AI Collaboration at its best. Let's make something Legendary together! ✨
