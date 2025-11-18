@@ -1,0 +1,26 @@
+{
+  "name": "curator-city-guides",
+  "version": "1.0.0",
+  "description": "Legendary guides to Los Angeles neighborhoods, featuring seasonal updates, events, and curated experiences",
+  "scripts": {
+    "fetch-events": "node scripts/fetch-events.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CurationsLA/curator-city-guides.git"
+  },
+  "keywords": [
+    "los-angeles",
+    "city-guide",
+    "travel",
+    "tourism",
+    "rainy-day",
+    "events"
+  ],
+  "author": "CurationsLA",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "private": true
+}
