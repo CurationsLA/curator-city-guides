@@ -1,0 +1,1 @@
+This is a placeholder for a Rainy Day Guide, Los Angeles. Though it is similiar in nature to our Holiday Guides in that, yes same format framework, this Rainy Day Guide will not cover anythinig Christmas / Holiday-related, this is merely for a Rainy Day Guide. 
