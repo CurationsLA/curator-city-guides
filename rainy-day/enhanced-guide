@@ -159,6 +159,30 @@ Pasadena
 - Cafe Santorini — warm interiors and parking nearby.
 - Mi Piace (Old Pasadena) — warm pastas and indoor booths.
 
+Eagle Rock
+- Comet Over Delphi — big windows and natural light, perfect for watching the storm roll by.
+
+Additional Indoor Activities & Venues (Nov 18-23, 2025)
+
+Museums & Culture (with Special Events)
+- The Broad (Downtown LA) — free general admission; famous for modern art exhibits and the Infinity Mirror Room. Reserve ahead; quiet on rainy weekdays.
+- Natural History Museum (Exposition Park) — home to the Spider Pavilion (until November 30), plus fascinating permanent exhibits. Great for families.
+- California Science Center (Exposition Park) — ideal for families, especially toddlers; hands-on exhibits and the Space Shuttle Endeavour.
+- The Last Bookstore (Downtown LA) — California's largest book and record store, housed in a former bank vault; perfect for browsing on rainy afternoons.
+
+Entertainment & Shows
+- Orpheum Theatre (Downtown LA) — historic venue hosting Sigur Rós Nov 19-21; intimate setting with excellent acoustics.
+- The Wiltern (Mid-City) — multiple shows including Kevin Gates (Nov 19), Cap'n Jazz (Nov 20), Lucius (Nov 21).
+- Hollywood Palladium — Little Simz (Nov 18), Hot Mulligan (Nov 19); iconic venue with full bar and food options.
+- Crypto.com Arena (Downtown LA) — Sabrina Carpenter Nov 21 with Amber Mark and Ravyn Lenae; large indoor venue with covered parking.
+- Escape rooms (60out locations) — multiple themes across LA; purpose-built for rainy afternoons and group bonding.
+
+Interactive & Creative Venues
+- Color Me Mine — pottery painting studios for creative rainy day activities.
+- Still Life Studio — art workshops and creative escapes.
+- Board game cafés and arcades — Hollywood and Koreatown locations keep vibes lively while staying dry.
+- Indoor climbing gyms (L.A. Boulders) — scratch the adventure itch when trails are muddy.
+
 Live Weather Alerts & Notices (integrated)
 - This post includes a small inline script that fetches weather alerts from OpenWeatherMap (or NWS fallback). Add OPENWEATHER_API_KEY to repository secrets to enable live alerts. When an active alert exists for the Los Angeles county area, a dismissible alert bar appears at the top of the post with alert summary and link to details. If alerts cannot be fetched, the bar links to the NWS Los Angeles office: https://www.weather.gov/lox/
 
