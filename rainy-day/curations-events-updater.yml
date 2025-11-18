@@ -1,0 +1,87 @@
+name: curations: events & weather updater
+
+on:
+  schedule:
+    # Runs daily at 09:00 UTC (adjust as needed)
+    - cron: '0 9 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  update-events:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install dependencies (if any)
+        run: |
+          # No dependencies required for the scaffold; if you add node-fetch or others, install here.
+          npm ci || true
+
+      - name: Run fetch-events script
+        env:
+          OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
+          EVENTS_API_KEY: ${{ secrets.EVENTS_API_KEY }}
+        run: |
+          chmod +x scripts/fetch-events.js
+          node scripts/fetch-events.js
+
+      - name: Commit changes
+        id: commit
+        run: |
+          git config user.name "curations-bot"
+          git config user.email "curations-bot@users.noreply.github.com"
+          BRANCH="rainy-guide/events-$(date +%Y%m%d-%H%M%S)"
+          git checkout -b "$BRANCH"
+          git add rainy-day/the-guide || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            git commit -m "chore: update rainy-day guide events & weather (automated)"
+            git push origin "$BRANCH"
+            echo "branch=$BRANCH" >> $GITHUB_OUTPUT
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.commit.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: update rainy-day guide events & weather (automated)"
+          branch: ${{ steps.commit.outputs.branch }}
+          title: "Add Rainy Day Guide updates: weekly events & weather (automated)"
+          body: |
+            This PR was created automatically by the curations events updater workflow.
+
+            Changes:
+            - Updated rainy-day/the-guide with the latest indoor events and weather alerts for the upcoming week.
+            - This is an automated update; confirm event times and links before merging.
+
+            Secrets required for full automation:
+            - OPENWEATHER_API_KEY (required to fetch weather alerts)
+            - EVENTS_API_KEY (optional; if you use a provider to fetch event lists)
+            - MAPBOX_ACCESS_TOKEN (for rendering map tiles on the site; not required for this workflow)
+            
+            Testing steps:
+            1. Inspect the changed file in the PR; verify the event list and links.
+            2. Merge to test on a staging site or local Ghost build.
+            3. Confirm alert bar appears when OPENWEATHER_API_KEY is configured and a weather alert is active.
+            4. If the map is enabled, add MAPBOX_ACCESS_TOKEN to the site and check the 'Hot soup index' layer.
+
+            If you'd like the workflow to open PRs against a specific branch (instead of default), adjust the checkout or create-pull-request options.
+
+      - name: Done
+        run: echo "Workflow finished"
